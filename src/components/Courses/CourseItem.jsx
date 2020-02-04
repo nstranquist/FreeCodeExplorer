@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form } from 'react-bootstrap'
+import { StyledCourseItem } from '../../styles/Course.style'
 
 export const CourseItem = ({
   course, // id, name, duration
@@ -11,15 +12,17 @@ export const CourseItem = ({
   }
 
   return (
-    <li style={{ padding: 20 }}>
+    <StyledCourseItem>
       <div className="left-side">
         {/* checkbox here */}
-        <Form.Check type="checkbox" label="Add" />
+        <Form.Check type="checkbox" />
       </div>
       <div className="right-side">
-        <h6 onClick={handleTitleClick}>{course.name}</h6>
-        <p>{course.duration}</p>
+        <h6 onClick={handleTitleClick} style={{marginTop:5,marginBottom:5,padding:5}}>
+          {course.name}</h6>
+        <p style={{marginTop:5,marginBottom:5,padding:5, color:"rgba(0,0,0,.55)"}}>
+          {course.duration}</p>
       </div>
-    </li>
+    </StyledCourseItem>
   )
 }
