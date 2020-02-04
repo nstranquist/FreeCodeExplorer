@@ -1,19 +1,29 @@
 import React from 'react'
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { Navbar, Nav } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 
 export const MyNavbar = () => {
   return (
     <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">FreeCodeExplorer</Navbar.Brand>
+      <Navbar.Brand componentClass={Link} href="/" to="/">FreeCodeExplorer</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#about">About</Nav.Link>
+          <LinkContainer to="/home">
+            <Nav.Link>Home</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/about">
+            <Nav.Link>About</Nav.Link>
+          </LinkContainer>
         </Nav>
         <Nav>
-          <Nav.Link href="#your-courses">Your Courses</Nav.Link>
-          <Nav.Link href="#all-courses">All Courses</Nav.Link>
+          <LinkContainer to="/my/courses">
+            <Nav.Link>Your Courses</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/courses">
+            <Nav.Link>All Courses</Nav.Link>
+          </LinkContainer>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
