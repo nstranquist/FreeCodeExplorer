@@ -1,13 +1,10 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { MyNavbar } from './components/layout/Navbar';
 
 function App() {
   return (
     <div>
-      <Button>Hello</Button>
+      <MyNavbar />
     </div>
   );
 }
