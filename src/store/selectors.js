@@ -10,3 +10,10 @@ export const getMyCourses = (state) => {
   console.log('my selected courses:', selectedCourses)
   return selectedCourses
 }
+
+// export const selectFeaturedCourse = (state) => {
+//   let randomIndex = Math.floor(Math.random() * coursesData.length)
+//   console.log('random index:', randomIndex)
+//   // return random course
+//   return coursesData[randomIndex]
+// }

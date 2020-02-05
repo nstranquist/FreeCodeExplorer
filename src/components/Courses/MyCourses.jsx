@@ -6,6 +6,7 @@ import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { StyledCourseItem } from '../../styles/Course.style'
 import { getMyCourses } from '../../store/selectors'
 import { removeCourse } from '../../store/Profile'
+import { LinkContainer } from 'react-router-bootstrap'
 
 export const MyCoursesUI = ({
   myCoursesData,
@@ -14,6 +15,14 @@ export const MyCoursesUI = ({
 
   const onRemoveCourse = (id) => {
     removeCourse(id)
+  }
+
+  const onStartCourse = (id) => {
+    // start course:
+    // ... takes you to a timer page? or creates new trello-type page?
+    // perhaps I have outlines already made of their content...?
+    // hmmm, maybe this is where the true profile creation starts!!
+    console.log('clicked start course with id:', id)
   }
 
   return (
@@ -39,11 +48,14 @@ export const MyCoursesUI = ({
             course={course}
             added={true}
             onRemoveCourse={onRemoveCourse}
+            onStartCourse={onStartCourse}
           />
         )) : (
           <div style={{textAlign:'center', marginTop:15}}>
             <p>You don't have any courses yet!</p>
-            <Button>Add Some</Button>
+            <LinkContainer to="/courses">
+              <Button>Add Some</Button>
+            </LinkContainer>
           </div>
         )}
       </ul>

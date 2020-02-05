@@ -1,22 +1,22 @@
 export const coursesData = [
   {
     id: 'dklfjdslfk',
-    name: 'first course',
+    name: 'First Course',
     duration: 80,
   },
   {
     id: 'sdfjkldkfjd',
-    name: 'data structures - how to get hired at Google',
+    name: 'Data Structures - How to Get Hired at Google',
     duration: 25,
   },
   {
     id: 'eioruecvbpfkj',
-    name: 'epic react tutorial',
+    name: 'Epic React Tutorial',
     duration: 240,
   },
   {
     id: 'mcxnvmdnfkjsr',
-    name: 'how to be a beast at AWS',
+    name: 'How to be a Beast at AWS',
     duration: 60,
   },
 ]

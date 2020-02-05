@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Card } from 'react-bootstrap'
 
 export const StyledCourseItem = styled.li`
   display: flex;
@@ -8,14 +9,18 @@ export const StyledCourseItem = styled.li`
 
   .left-side {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 15px;
   }
-  .right-side {
+  .center-body {
     flex: 1;
 
     p {
       margin: 0 !important;
     }
+  }
+  .right-side {
+    display: inline-block;
+    margin-left: 15px;
   }
 
   .course-title {
@@ -30,5 +35,47 @@ export const StyledCourseItem = styled.li`
     :hover {
       text-decoration: underline;
     }
+  }
+`
+
+export const StyledFeaturedCard = styled(Card)`
+  background: #6200EE;
+  color: #fff;
+  text-align: center;
+
+  .featured-card-body {
+    display: flex;
+    align-items: center;
+
+    .left-side {
+      display: inline-block;
+      margin-right: 20px;
+    }
+    .center-body {
+      flex: 1;
+      margin-left: calc(-20px - 2.4rem);
+
+
+      p {
+        margin: 0 !important;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .left-side {
+        display: none;
+      }
+      .center-body {
+        margin-left: initial;
+      }
+    }
+  }
+`
+export const StyledFeatureTitle = styled.h2`
+  display: inline-block;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
   }
 `
