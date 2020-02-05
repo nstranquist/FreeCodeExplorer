@@ -1,42 +1,24 @@
-import React, { useState } from 'react'
-
+import React from 'react'
+import { connect } from 'react-redux'
 import { Form, Container } from 'react-bootstrap'
 import { coursesData } from '../Data/CoursesData'
 import { CourseItem } from './CourseItem'
 import { StyledCourseItem } from '../../styles/Course.style'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
+import { addCourse, removeCourse } from '../../store/Profile'
 
-export const AllCourses = ({
-
+export const AllCoursesUI = ({
+  myCourses,
+  addCourse,
+  removeCourse,
 }) => {
-  const [checked, setChecked] = useState([])
 
-  const handleAllCheck = (e) => {
-    console.log('clicked allChange checkbox with event:', e, 'checked:', e.target.checked)
-    if(e.target.checked) {
-      // select all boxes
-      let allCourseIds = coursesData.map(course => {
-        return course.id
-      })
-      setChecked(allCourseIds)
-    }
-    else {
-      // uncheck box, deselect all boxes
-      setChecked([])
-    }
+  const onAddCourse = (id) => {
+    addCourse(id)
   }
 
-  const checkCourse = (id) => {
-    let copy = [...checked]
-    copy.push(id)
-    setChecked(copy)
-    console.log('checked:', checked)
-  }
-
-  const uncheckCourse = (id) => {
-    let filteredCopy = checked.filter(courseId => courseId !== id)
-    setChecked(filteredCopy)
-    console.log('checked:', checked)
+  const onRemoveCourse = (id) => {
+    removeCourse(id)
   }
 
   return (
@@ -45,12 +27,12 @@ export const AllCourses = ({
         <h2>All Courses</h2>
         <StyledSubheader>-- select a course to add it --</StyledSubheader>
       </StyledHeader>
-      
+
       <ul className="plain-list">
         {/* List Header */}
         <StyledCourseItem>
           <div className="left-side" style={{display:'flex', alignItems:'center'}}>
-            <Form.Check type="checkbox" checked={checked.length === coursesData.length} onChange={handleAllCheck} name="allCourses" />
+            <Form.Check type="checkbox" style={{visibility:'hidden'}} />
           </div>
           <div className="right-side">
             <strong>Course</strong>
@@ -60,12 +42,21 @@ export const AllCourses = ({
           <CourseItem
             key={index}
             course={course}
-            checked={checked.includes(course.id)}
-            checkCourse={checkCourse}
-            uncheckCourse={uncheckCourse}
+            added={myCourses.includes(course.id)}
+            onAddCourse={onAddCourse}
+            onRemoveCourse={onRemoveCourse}
           />
         ))}
       </ul>
     </Container>
   )
 }
+
+const mapStateToProps = (state) => ({
+  myCourses: state.profile.myCourses,
+})
+
+export const AllCourses = connect(
+  mapStateToProps,
+  { addCourse, removeCourse }
+)(AllCoursesUI)

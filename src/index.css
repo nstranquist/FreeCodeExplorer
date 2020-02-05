@@ -12,3 +12,13 @@ p {
   list-style: none;
   padding-left: 0;
 }
+.courses-toolbar {
+  display: flex;
+  align-items: center;
+}
+.none {
+  display: none;
+}
+.hidden {
+  visibility: hidden;
+}
