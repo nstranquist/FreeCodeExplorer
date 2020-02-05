@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 import { coursesData } from '../Data/CoursesData'
+import { Container } from 'react-bootstrap'
 
 // use match params
 
@@ -11,8 +12,8 @@ export const CourseDetail = (props) => {
   }, [])
   
   return (
-    <div>
+    <Container>
       Course Detail
-    </div>
+    </Container>
   )
 }

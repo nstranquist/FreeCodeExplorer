@@ -1,6 +1,8 @@
 import React from 'react'
 
 import { Container } from 'react-bootstrap'
+import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
+import { StyledAboutSection } from '../../styles/About.style'
 
 export const About = ({
 
@@ -8,12 +10,12 @@ export const About = ({
 
   return (
     <Container>
-      <header style={{textAlign:'center', padding: '1.5rem 1rem',}}>
+      <StyledHeader>
         <h2>About</h2>
-        <p style={{fontSize:'1rem', fontWeight:300, marginTop:15}}>-- About FreeCodeExplorer --</p>
-      </header>
+        <StyledSubheader>-- About FreeCodeExplorer --</StyledSubheader>
+      </StyledHeader>
       
-      <section style={{width:'66%', margin: '0 auto', textAlign:'center', fontSize:'1.1rem', letterSpacing:'1px', lineHeight:1.5,fontFamily:'sans-serif'}}>
+      <StyledAboutSection>
         {/* Details Here */}
         <p><u>FreeCodeExplorer</u> is a tool developed for new coders who are trying to learn. It will help you select a track, and then filter videos from FreeCodeCamp and other sources according to your needs</p>
 
@@ -29,7 +31,7 @@ export const About = ({
           <li>A forum for learners to share helpful resources</li>
           <li>... and more if desired</li>
         </ul>
-      </section>
+      </StyledAboutSection>
     </Container>
   )
 }

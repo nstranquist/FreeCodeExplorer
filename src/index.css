@@ -8,3 +8,7 @@ p {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+.plain-list {
+  list-style: none;
+  padding-left: 0;
+}

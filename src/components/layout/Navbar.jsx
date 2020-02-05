@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { Navbar, Nav } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
 export const MyNavbar = () => {
   return (
     <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
-      <Navbar.Brand componentClass={Link} href="/" to="/">FreeCodeExplorer</Navbar.Brand>
+      <Navbar.Brand href="/">FreeCodeExplorer</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
