@@ -19,6 +19,7 @@ export const StyledCourseItem = styled.li`
   }
 
   .course-title {
+    display: inline-block;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
