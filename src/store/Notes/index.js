@@ -1,4 +1,4 @@
-
+import { getCurrentTimestamp } from '../../utils/dateUtils'
 
 // Notes Types
 const ADD_NOTE = 'ADD_NOTE'
@@ -15,10 +15,10 @@ export const addNote = (parentId, noteData) => {
   }
 }
 
-export const editNote = (noteId, noteData) => {
+export const editNote = (parentId, noteData) => { // parentId is null? or just same as before if not changed?
   return {
     type: EDIT_NOTE,
-    noteId,
+    parentId,
     noteData
   }
 }
@@ -48,14 +48,16 @@ export default (
           ...state.notes,
           {
             ...action.noteData,
-            parentId: action.parentId
+            parentId: action.parentId,
+            timestamp: getCurrentTimestamp()
           }
         ],
       }
     case EDIT_NOTE:
       // map existing notes in state, updating note where ids match, returning new notes array
       let newNotes = state.notes.map(note => {
-        if(note.id === action.noteId) {
+        // note: this assumes parentId matches, editing that is not available yet
+        if(note.id === action.noteData.id) {
           // edit the note
           return {...note, ...action.noteData}
         }

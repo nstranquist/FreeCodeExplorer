@@ -1,21 +1,23 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Form } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 import { isObjectEmpty } from '../../utils/isObjectEmpty'
 import { addNote } from '../../store/Notes'
 
 
-// const emptyNotesForm = {
-//   id: '',
-//   notesBody: '',
-// }
+// add date timestamp
+
+const emptyNotesForm = {
+  id: 'default',
+  body: '',
+}
 
 // this component will need to be truly modular, so that it can be included inside of other, unrelated components
 export const NotesUI = ({
   parentId, // id of item the notes pertains to
-  addNote, // from redux, takes in parentId
+  onAddNote, // from redux, takes in parentId
 }) => {
-  const [noteData, setNoteData] = useState({})
+  const [noteData, setNoteData] = useState(emptyNotesForm) // use a useEffect() hook to set the initial formData?
 
   const handleChange = (e) => {
     setNoteData({
@@ -34,28 +36,32 @@ export const NotesUI = ({
     }
     
     // submit form data
-    addNote(parentId, noteData)
+    onAddNote(parentId, noteData)
 
     // reset form
     resetForm()
   }
 
-  const resetForm = () => setNoteData({})
+  const resetForm = () => {
+    console.log('reset form')
+    setNoteData(emptyNotesForm)
+  }
 
   return (
     <Form className="user-notes-container" onSubmit={handleSubmit}>
-      {/* Subject / Item pertains to */}
+      {/* Subject / Item pertains to (could make a <select> input) */}
       <p className="form-id">id: {parentId}</p>
 
       {/* Notes box */}
       <Form.Group>
-        <Form.Control as="textarea" name="noteBody" onChange={handleChange} />
+        <Form.Control as="textarea" name="body" value={noteData.body} onChange={handleChange} />
       </Form.Group>
 
       {/* Add additional Note modules (button) */}
 
-      {/* Submit / Save note (button) */}
 
+      {/* Submit / Save note (button) */}
+      <Button variant="light" type="submit">Save</Button>
     </Form>
   )
 }

@@ -22,3 +22,11 @@ p {
 .hidden {
   visibility: hidden;
 }
+
+.note-item-button-options {
+  margin-top: 12px;
+}
+.note-item-button {
+  display:inline-block;
+  margin-left: 10px;
+}
