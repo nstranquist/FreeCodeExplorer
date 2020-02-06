@@ -18,15 +18,15 @@ export const NotesListUI = ({
     setFormVisible(!formVisible)
   }
 
-  const onAddNote = (parentId, noteData) => {
-    console.log('parent id:', parentId, 'note data:', noteData)
+  const onAddNote = (noteData) => {
+    console.log('note data:', noteData)
     // add note to redux
-    addNote(parentId, noteData)
+    addNote(noteData)
   }
 
-  const onEditNote = (parentId, noteData) => {
+  const onEditNote = (noteData) => {
     // edit note in redux. note: will take some ui updates
-    editNote(parentId, noteData)
+    editNote(noteData)
   }
 
   const onRemoveNote = (noteId) => {

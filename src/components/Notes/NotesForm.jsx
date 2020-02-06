@@ -1,23 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Form, Button } from 'react-bootstrap'
 import { isObjectEmpty } from '../../utils/isObjectEmpty'
 import { addNote } from '../../store/Notes'
 
 
-// add date timestamp
-
-const emptyNotesForm = {
-  id: 'default',
-  body: '',
-}
+// const emptyNotesForm = {
+//   parentId: 'default',
+//   body: '',
+// }
 
 // this component will need to be truly modular, so that it can be included inside of other, unrelated components
 export const NotesUI = ({
   parentId, // id of item the notes pertains to
   onAddNote, // from redux, takes in parentId
 }) => {
-  const [noteData, setNoteData] = useState(emptyNotesForm) // use a useEffect() hook to set the initial formData?
+  const [noteData, setNoteData] = useState({ body: "" }) // use a useEffect() hook to set the initial formData?
+
+  useEffect(() => {
+    if(!parentId)
+      setNoteData({
+        ...noteData,
+        parentId: "default",
+      })
+    else
+      setNoteData({
+        ...noteData,
+        parentId
+      })
+  }, [])
 
   const handleChange = (e) => {
     setNoteData({
@@ -36,7 +47,7 @@ export const NotesUI = ({
     }
     
     // submit form data
-    onAddNote(parentId, noteData)
+    onAddNote(noteData)
 
     // reset form
     resetForm()
@@ -44,13 +55,13 @@ export const NotesUI = ({
 
   const resetForm = () => {
     console.log('reset form')
-    setNoteData(emptyNotesForm)
+    setNoteData({ body: "" })
   }
 
   return (
     <Form className="user-notes-container" onSubmit={handleSubmit}>
       {/* Subject / Item pertains to (could make a <select> input) */}
-      <p className="form-id">id: {parentId}</p>
+      <p className="form-id">parentId: {noteData.parentId}</p>
 
       {/* Notes box */}
       <Form.Group>

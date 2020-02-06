@@ -1,3 +1,4 @@
+import uuidv4 from 'uuid/v4'
 import { getCurrentTimestamp } from '../../utils/dateUtils'
 
 // Notes Types
@@ -7,10 +8,9 @@ const REMOVE_NOTE = 'REMOVE_NOTE'
 
 
 // Notes Actions
-export const addNote = (parentId, noteData) => {
+export const addNote = (noteData) => {
   return {
     type: ADD_NOTE,
-    parentId,
     noteData
   }
 }
@@ -48,7 +48,7 @@ export default (
           ...state.notes,
           {
             ...action.noteData,
-            parentId: action.parentId,
+            id: uuidv4(),
             timestamp: getCurrentTimestamp()
           }
         ],
