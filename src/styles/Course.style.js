@@ -53,11 +53,15 @@ export const StyledFeaturedCard = styled(Card)`
     }
     .center-body {
       flex: 1;
-      margin-left: calc(-20px - 2.4rem);
+      margin-left: -2.4rem;
 
 
       p {
         margin: 0 !important;
+      }
+
+      * {
+        margin-left: -20px;
       }
     }
 
@@ -74,6 +78,7 @@ export const StyledFeaturedCard = styled(Card)`
 export const StyledFeatureTitle = styled.h2`
   display: inline-block;
   cursor: pointer;
+  overflow: hidden;
 
   &:hover {
     text-decoration: underline;

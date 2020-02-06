@@ -12,8 +12,14 @@ export const MyNavbar = () => {
           <LinkContainer to="/home">
             <Nav.Link>Home</Nav.Link>
           </LinkContainer>
+          <LinkContainer to="/categories">
+            <Nav.Link>Categories</Nav.Link>
+          </LinkContainer>
           <LinkContainer to="/about">
             <Nav.Link>About</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/contribute">
+            <Nav.Link>Contribute</Nav.Link>
           </LinkContainer>
         </Nav>
         <Nav>
@@ -22,6 +28,9 @@ export const MyNavbar = () => {
           </LinkContainer>
           <LinkContainer to="/courses">
             <Nav.Link>All Courses</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/my/notes">
+            <Nav.Link>Notes</Nav.Link>
           </LinkContainer>
         </Nav>
       </Navbar.Collapse>

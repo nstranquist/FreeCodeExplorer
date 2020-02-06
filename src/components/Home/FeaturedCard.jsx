@@ -26,11 +26,11 @@ export const FeaturedCard = ({
           )}
         </div>
         <div className="center-body">
-          <h6 style={{margin:0,marginBottom:5,padding:0}}>FOR YOU</h6>
-          <LinkContainer to={`/course/${featuredCourse.id}`}>
+          <h6 style={{margin:0,marginLeft:-20,marginBottom:5,padding:0}}>FOR YOU</h6>
+          <LinkContainer to={`/course/${featuredCourse.id}`} style={{marginLeft:-20}}>
             <StyledFeatureTitle>{featuredCourse.name}</StyledFeatureTitle>
           </LinkContainer>
-          <h5 style={{margin:0,padding:0, display:'flex',alignItems:'center', justifyContent:'center'}}>
+          <h5 style={{margin:0,padding:0, display:'flex',alignItems:'center', justifyContent:'center',marginLeft:-20}}>
             <FiClock style={{marginRight:6}} />
             {formatDuration(featuredCourse.duration)}
           </h5>

@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import profile from './Profile'
-// import { courses } from './Courses'
+import notes from './Notes'
 
 const rootReducer = combineReducers({
   profile,
-  // courses
+  notes
 })
 
 export default rootReducer

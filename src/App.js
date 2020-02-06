@@ -2,10 +2,11 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { HomeView } from './components/Home'
 import { MyNavbar } from './components/layout/Navbar';
-import { AllCourses } from './components/Courses';
-import { MyCourses } from './components/Courses';
-import { CourseDetail } from './components/Courses';
-import { About } from './components/About/About';
+import { AllCourses, MyCourses, CourseDetail } from './components/Courses';
+import { About } from './components/About';
+import { Categories, CategoryDetail } from './components/Categories';
+import { NotesList } from './components/Notes'
+import { Contribute } from './components/Contribute';
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
           <Route exact path="/course/:id" component={CourseDetail} />
           <Route exact path="/my/courses" component={MyCourses} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/categories" component={Categories} />
+          <Route exact path="/category/:categoryId" component={CategoryDetail} />
+          {/* Experimental Features */}
+          <Route exact path="/my/notes" component={NotesList} />
+          <Route exact path="/contribute" component={Contribute} />
         </Switch>
       </>
     </BrowserRouter>
