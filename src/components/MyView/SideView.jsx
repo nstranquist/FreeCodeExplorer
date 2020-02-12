@@ -15,9 +15,8 @@ export const StyledSideView = styled.div`
     padding: 0;
 
     li {
-      display: block;
-      width: 100%;
-      padding: .5rem 1rem;
+      // display: block;
+      // width: 100%;
       border-bottom: 1px solid rgba(0,0,0,.1);
       cursor: pointer;
 
@@ -28,6 +27,11 @@ export const StyledSideView = styled.div`
       &:hover {
         background: rgba(0,0,0,.05);
         text-decoration: underline;
+      }
+
+      .side-view-link {
+        display: block;
+        padding: .5rem 1rem;
       }
     }
   }
@@ -41,22 +45,22 @@ export const SideView = ({
     <StyledSideView>
       <ul className="side-view-list">
           <li>
-            <Link to="/my/home">Home</Link>
+            <Link className="side-view-link" to="/my/home">Home</Link>
           </li>
           <li>
-            <Link to="/my/courses">Your Courses</Link>
+            <Link className="side-view-link" to="/my/courses">Your Courses</Link>
           </li>
           <li>
-            <Link to="/my/progress">Your Progress</Link>
+            <Link className="side-view-link" to="/my/progress">Your Progress</Link>
           </li>
           <li>
-            <Link to="/my/goals">Goals</Link>
+            <Link className="side-view-link" to="/my/goals">Goals</Link>
           </li>
           <li>
-            <Link to="/my/kanban">KanBan</Link>
+            <Link className="side-view-link" to="/my/kanban">KanBan</Link>
           </li>
           <li>
-            <Link to="/my/settings">Settings</Link>
+            <Link className="side-view-link" to="/my/settings">Settings</Link>
           </li> {/* user can select which tools they want in their dashboard */}
       </ul>
     </StyledSideView>
