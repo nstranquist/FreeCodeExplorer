@@ -5,6 +5,9 @@ import { getCurrentTimestamp } from '../../utils/dateUtils'
 const ADD_NOTE = 'ADD_NOTE'
 const EDIT_NOTE = 'EDIT_NOTE'
 const REMOVE_NOTE = 'REMOVE_NOTE'
+const ADD_FILTER = 'ADD_FILTER'
+const REMOVE_FILTER = 'REMOVE_FILTER'
+const RESET_FILTER = 'RESET_FILTER'
 
 
 // Notes Actions
@@ -30,10 +33,34 @@ export const removeNote = (noteId) => {
   }
 }
 
+export const addNotesFilter = (filter) => {
+  return {
+    type: ADD_FILTER,
+    filter
+  }
+}
+
+export const removeNotesFilter = (filter) => {
+  return {
+    type: REMOVE_FILTER,
+    filter
+  }
+}
+
+export const resetNotesFilter = () => {
+  return {
+    type: RESET_FILTER,
+  }
+}
+
+// addNoteFilter
+// resetNotesFilter
+// removeNoteFilter
 
 // Notes Reducer
 const initialState = {
-  notes: [] // id, parentId, [...notesData] = { notesBody, details: [] }
+  notes: [], // id, parentId, tags, [...notesData] = { notesBody, details: [] }
+  filters: [],
 }
 
 export default (
@@ -71,6 +98,25 @@ export default (
       return {
         ...state,
         notes: state.notes.filter(note => note.id !== action.noteId)
+      }
+    case ADD_FILTER:
+      return {
+        ...state,
+        filters: [
+          ...state.filters,
+          action.filter,
+        ]
+      }
+    case REMOVE_FILTER:
+      return {
+        ...state,
+        filters: state.filters.filter(filter => filter !== action.filter)
+      }
+    case RESET_FILTER:
+      // check if filter already exists in state
+      return {
+        ...state,
+        filters: []
       }
     default:
       return state

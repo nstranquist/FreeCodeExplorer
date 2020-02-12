@@ -10,7 +10,7 @@ export const CourseItem = ({
   added,
   onAddCourse,
   onRemoveCourse,
-  onStartCourse,
+  // onStartCourse,
 }) => {
 
   const handleAddCourse = (e) => {
@@ -21,9 +21,9 @@ export const CourseItem = ({
     onRemoveCourse(course.id)
   }
 
-  const handleStartCourse = (e) => {
-    onStartCourse(course.id)
-  }
+  // const handleStartCourse = (e) => {
+  //   onStartCourse(course.id)
+  // }
 
   return (
     <StyledCourseItem>
@@ -48,8 +48,9 @@ export const CourseItem = ({
             {formatDuration(course.duration)}</p>
       </div>
       <div className="right-side">
-        <Button variant="light" style={{display:'inline-block'}}
-          onClick={handleStartCourse}>Start</Button>
+        <LinkContainer to={`/course/${course.id}`}>
+          <Button variant="light" style={{display:'inline-block'}}>Start</Button>
+        </LinkContainer>
       </div>
     </StyledCourseItem>
   )

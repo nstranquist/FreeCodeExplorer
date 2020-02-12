@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Container, Button } from 'react-bootstrap'
+import { NotesForm, NotesItem, NotesFinder } from './index'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { addNote, editNote, removeNote } from '../../store/Notes'
-import { NotesForm } from './NotesForm'
-import { NotesItem } from './NotesItem'
 
 export const NotesListUI = ({
   notes,
+  filters,
   addNote,
   editNote,
   removeNote,
 }) => {
   const [formVisible, setFormVisible] = useState(false)
+  const [searchText, setSearchText] = useState("")
 
   const toggleAddNote = (e) => {
     setFormVisible(!formVisible)
@@ -34,12 +35,34 @@ export const NotesListUI = ({
     removeNote(noteId)
   }
 
+  const onSearchNotes = (searchText) => {
+    let searchResults = notes.filter(note => note.body.includes(searchText))
+    console.log('search results:', searchResults)
+  }
+
+  const renderNotesArray = () => {
+    if(searchText.length < 1)
+      return notes
+
+    let filteredNotes = notes.filter(note => note.body.includes(searchText))
+
+    return filteredNotes
+  }
+
   return (
     <Container>
       <StyledHeader>
         <h4>Your Notes</h4>
-        <StyledSubheader>Showing {notes.length} notes</StyledSubheader>
       </StyledHeader>
+      
+      <div style={{textAlign:'center', marginTop: 10}}>
+        <NotesFinder
+          searchText={searchText}
+          setSearchText={setSearchText}
+          onSearchNotes={onSearchNotes}
+        />
+        {/* <Button onClick={handleSearchNotes}>Search Notes</Button> */}
+      </div>
 
       <div style={{marginTop:10}}>
         <Button onClick={toggleAddNote}>{formVisible ? "Cancel" : "Add New Note"}</Button>
@@ -49,14 +72,16 @@ export const NotesListUI = ({
         <div style={{margin:"10px 0",padding:"10px 0"}}>
           <NotesForm
             parentId="default"
+            filters={filters}
             onAddNote={onAddNote}
             />
         </div>
       )}
       
       <section className="notes-section">
+        <p style={{textAlign:'center'}}>Showing {renderNotesArray().length} of {notes.length} notes</p>
         <ul className="notes-list" style={{listStyle:'none'}}>
-          {notes.map((note, index) => (
+          {renderNotesArray().map((note, index) => (
             // Note Item:
             <li key={index}>
               <NotesItem
@@ -73,7 +98,8 @@ export const NotesListUI = ({
 }
 
 const mapStateToProps = (state) => ({
-  notes: state.notes.notes
+  notes: state.notes.notes,
+  filters: state.notes.filters,
 })
 
 export const NotesList = connect(

@@ -2,11 +2,13 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { HomeView } from './components/Home'
 import { MyNavbar } from './components/layout/Navbar';
-import { AllCourses, MyCourses, CourseDetail } from './components/Courses';
+import { AllCourses, CourseDetail } from './components/Courses';
 import { About } from './components/About';
 import { Categories, CategoryDetail } from './components/Categories';
-import { NotesList } from './components/Notes'
 import { Contribute } from './components/Contribute';
+import { VideosFeed } from './components/Videos';
+import { MyView } from './components/MyView'
+import { Board } from './components/KanBan/Board';
 
 function App() {
   return (
@@ -16,15 +18,16 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomeView} />
           <Route exact path="/home" component={HomeView} />
+          <Route path="/my" component={MyView} />
           <Route exact path="/courses" component={AllCourses} />
           <Route exact path="/course/:id" component={CourseDetail} />
-          <Route exact path="/my/courses" component={MyCourses} />
           <Route exact path="/about" component={About} />
           <Route exact path="/categories" component={Categories} />
           <Route exact path="/category/:categoryId" component={CategoryDetail} />
           {/* Experimental Features */}
-          <Route exact path="/my/notes" component={NotesList} />
           <Route exact path="/contribute" component={Contribute} />
+          <Route exact path="/videos" component={VideosFeed} />
+          <Route exact path="/kanban" component={Board} />
         </Switch>
       </>
     </BrowserRouter>

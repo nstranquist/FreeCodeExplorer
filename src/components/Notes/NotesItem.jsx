@@ -21,6 +21,7 @@ export const NotesItem = ({
         <div>parent id: {note.parentId}</div>
         <div>note: {note.body}</div>
         <div>time: {getDateFromTimestamp(note.timestamp).toDateString()}</div>
+        <div>tags: {note.tags.map(tag => <span key={tag} style={{marginLeft:3}}>{tag}</span>)}</div>
 
         {/* If extras, map over them (sub-array?) */}
         <div className="note-item-button-options">

@@ -21,9 +21,10 @@ export const AllCoursesUI = ({
     removeCourse(id)
   }
 
-  const onStartCourse = (id) => {
-    console.log('clicked start on course with id:', id)
-  }
+  // const onStartCourse = (id) => {
+  //   console.log('clicked start on course with id:', id)
+
+  // }
 
   return (
     <Container>
@@ -49,7 +50,7 @@ export const AllCoursesUI = ({
             added={myCourses.includes(course.id)}
             onAddCourse={onAddCourse}
             onRemoveCourse={onRemoveCourse}
-            onStartCourse={onStartCourse}
+            // onStartCourse={onStartCourse}
           />
         ))}
       </ul>

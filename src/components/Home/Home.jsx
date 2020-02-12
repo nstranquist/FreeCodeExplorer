@@ -6,6 +6,7 @@ import { StyledJumboHeader, StyledHeader, StyledSubheader } from '../../styles/L
 import { addCourse, removeCourse } from '../../store/Profile'
 import { coursesData } from '../Data/CoursesData'
 import { FeaturedCard } from './FeaturedCard'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const featuredCourse = coursesData[Math.floor(Math.random() * coursesData.length)]
 
@@ -32,6 +33,9 @@ export const HomeUI = ({
 
   return (
     <Container>
+      <LinkContainer to="/my/home">
+        <a>to MyView</a>
+      </LinkContainer>
       <StyledJumboHeader>
         <h1>Welcome, Coder...</h1>
         <StyledSubheader>~ your journey awaits ~</StyledSubheader>

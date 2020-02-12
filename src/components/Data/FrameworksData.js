@@ -26,6 +26,14 @@ export const frameworksData = [
     linkToDocumentation: "",
   },
   {
+    id: "vue-framework",
+    name: "Vue.js",
+    language: "javascript",
+    description: "",
+    purpose: "front-end",
+    linkToDocumentation: "",
+  },
+  {
     id: "django-framework",
     name: "Django",
     language: "python",
@@ -47,6 +55,38 @@ export const frameworksData = [
     language: "java",
     description: "",
     purpose: "back-end, full-stack",
+    linkToDocumentation: "",
+  },
+  {
+    id: "laravel-framework",
+    name: "Laravel",
+    language: "PHP",
+    description: "",
+    purpose: "back-end, full-stack",
+    linkToDocumentation: ""
+  },
+  {
+    id: "node-framework",
+    name: "Node.js",
+    language: "JavaScript",
+    description: "Node.js is a javascript run-time environment that lets you write server-side javascript code",
+    purpose: "back-end, full-stack",
+    linkToDocumentation: ""
+  },
+  {
+    id: "ruby-framework",
+    name: "Ruby on Rails",
+    language: "Ruby",
+    description: "",
+    purpose: "back-end, full-stack",
+    linkToDocumentation: "",
+  },
+  {
+    id: "dotnet-framework",
+    name: ".NET",
+    language: "C#",
+    description: "",
+    purpose: "back-end",
     linkToDocumentation: "",
   }
 ]
