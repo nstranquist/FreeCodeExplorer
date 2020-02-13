@@ -53,7 +53,7 @@ export const CourseDetail = ({
         </StyledHeader>
 
         <StyledCourseSection className="course-detail">
-          <a href={courseItem.url} target="_blank">
+          <a href={courseItem.url} target="_blank" style={{marginBottom:20}}>
             <Button onClick={handleStart}>Begin</Button>
           </a>
           <br />
@@ -62,6 +62,12 @@ export const CourseDetail = ({
           {/* 1. Course Content */}
           {/* 2. Course Details */}
           {/* 3. Course Forum or Goodies(?) */}
+          <p style={{marginTop:20}}>{courseItem.description}</p>
+          <br />
+          <p>difficulty: {courseItem.difficulty}</p>
+          <p>tags: {courseItem.tags.map((tag, index) => <span key={index} className="tag-item">{tag}</span>)}</p>
+          <p>year: {courseItem.year}</p>
+          <p><a href={courseItem.ogChannel} target="_blank">original channel</a></p>
         </StyledCourseSection>
       </Container>
     </div>

@@ -9,7 +9,7 @@ export const MyNavbar = () => {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <LinkContainer to="/home">
+          <LinkContainer to="/my/home">
             <Nav.Link>Home</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/categories">

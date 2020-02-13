@@ -41,8 +41,10 @@ export const SubMenu = ({
         <li className="sub-nav-item">
           Kanban</li>
       </LinkContainer>
-      <li className="sub-nav-item">
-        Add Note</li>
+      <LinkContainer to="/my/notes">
+        <li className="sub-nav-item">
+          Add Note</li>
+      </LinkContainer>
       <li className="sub-nav-item">
         Forum</li>
       <li className="sub-nav-item">
