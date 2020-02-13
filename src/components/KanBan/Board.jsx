@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { addBoard, editBoard, removeBoard } from '../../store/KanBan'
 import { StyledHeader } from '../../styles/Layout.style'
@@ -61,6 +62,40 @@ const exampleBoard = {
 ]
 }
 
+const StyledBoard = styled.div`
+
+  .kanban-header {
+
+
+    .kanban-header-left {
+      display: inline-block;
+
+      li {
+        display: inline-block;
+        padding: .6rem;
+        outline: 1px solid rgba(0,0,0,.1);
+        cursor: pointer;
+
+        &:hover {
+          background: rgba(0,0,0,.08);
+        }
+      }
+    }
+  }
+
+  .board-col {
+    margin-left: 4px;
+    margin-right: 2px;
+    width: 272px;
+
+    .board-col-header {
+      //title input
+      //add button, cancel button
+
+    }
+  }
+`
+
 export const BoardUI = ({
 
 }) => {
@@ -75,31 +110,35 @@ export const BoardUI = ({
   // ** see Trello for inspiration here
   return (
     <Container fluid>
-      <StyledHeader>
-        <h1>User's KanBan Board</h1>
-      </StyledHeader>
-
       {/* Sub Menu / Form Here (to add name, other details, etc) */}
-      <div className="submenu-form">
-        <h3>project: {exampleBoard.name}</h3>
-        <p>goal: {exampleBoard.goal}</p>
-      </div>
+      <StyledBoard>
+        <header className="kanban-header">
+          <ul className="kanban-header-left" style={{listStyle:'none', paddingLeft:0}}>
+            <li><strong>{exampleBoard.name}</strong></li>
+            <li style={{marginLeft:10}}>{exampleBoard.goal}</li>
+            <li>
+              {/* Icons, Buttons, other helpful shortcuts */}
+            </li>
+          </ul>
+          <div className="kanban-header-right">{new Date().toDateString()}</div>
+        </header>
 
-      {/* KanBan Content Here */}
-      <section className="kanban-section">
-        {/* varying number of columns, each column can be added to or edited, can move left and right */}
-        {exampleBoard.columns.map(board => (
-          <div className="board-column" onDrag={handleDrag}>
-            <header>title: {board.name}</header>
-            {board.tasks.map(task => (
-              <article className="task-item">
-                <h5>{task.name}</h5>
-                <p>{task.details}</p>
-              </article>
-            ))}
-          </div>
-        ))}
-      </section>
+        {/* KanBan Content Here */}
+        <section className="kanban-board">
+          {/* varying number of columns, each column can be added to or edited, can move left and right */}
+          {exampleBoard.columns.map(board => (
+            <div className="board-column" onDrag={handleDrag}>
+              <header>title: {board.name}</header>
+              {board.tasks.map(task => (
+                <article className="task-item">
+                  <h5>{task.name}</h5>
+                  <p>{task.details}</p>
+                </article>
+              ))}
+            </div>
+          ))}
+        </section>
+      </StyledBoard>
     </Container>
   )
 }

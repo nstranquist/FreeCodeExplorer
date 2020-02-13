@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { LinkContainer } from 'react-router-bootstrap'
 
 
 const StyledSubNav = styled.ul`
@@ -36,8 +37,10 @@ export const SubMenu = ({
   // add icons to nav items
   return (
     <StyledSubNav>
-      <li className="sub-nav-item">
-        Kanban</li>
+      <LinkContainer to="/kanban">
+        <li className="sub-nav-item">
+          Kanban</li>
+      </LinkContainer>
       <li className="sub-nav-item">
         Add Note</li>
       <li className="sub-nav-item">

@@ -4,6 +4,7 @@ import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { Button } from 'react-bootstrap'
 import { removeBoard } from '../../store/KanBan'
 import { LinkContainer } from 'react-router-bootstrap'
+import { MdAdd } from 'react-icons/md'
 
 export const KanBanUI = ({
   boards
@@ -23,7 +24,7 @@ export const KanBanUI = ({
       <LinkContainer to="/kanban">
 
         <Button>
-          {/* Plus Icon Here */}
+          <MdAdd style={{fontSize:24,color:"rgba(0,0,0,.6)"}} />
           New Board</Button>
       </LinkContainer>
 
