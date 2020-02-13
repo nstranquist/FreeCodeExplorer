@@ -40,12 +40,13 @@ export const CourseItem = ({
           </div>
         )}
       </div>
+      {/* TODO: add 'see more' button here */}
       <div className="center-body">
         <LinkContainer to={`/course/${course.id}`}>
-            <h6 className="course-title">{course.name}</h6>
-          </LinkContainer>
-          <p style={{marginTop:5,marginBottom:5,padding:5, color:"rgba(0,0,0,.55)"}}>
-            {formatDuration(course.duration)}</p>
+          <h6 className="course-title">{course.name}</h6>
+        </LinkContainer>
+        <p style={{marginTop:5,marginBottom:5,padding:5, color:"rgba(0,0,0,.55)"}}>
+          {formatDuration(course.duration)}</p>
       </div>
       <div className="right-side">
         <LinkContainer to={`/course/${course.id}`}>

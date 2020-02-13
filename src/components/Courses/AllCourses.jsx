@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Form, Container } from 'react-bootstrap'
-import { coursesData } from '../Data/CoursesData'
+import { coursesData, popularCoursesData } from '../Data/CoursesData'
 import { CourseItem } from './CourseItem'
 import { StyledCourseItem } from '../../styles/Course.style'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
@@ -43,7 +43,7 @@ export const AllCoursesUI = ({
             <strong>Course</strong>
           </div>
         </StyledCourseItem>
-        {coursesData.map((course, index) => (
+        {popularCoursesData.courses.map((course, index) => (
           <CourseItem
             key={index}
             course={course}

@@ -4,11 +4,11 @@ import { Container } from 'react-bootstrap'
 import { MyCourses, AllCourses } from '../Courses'
 import { StyledJumboHeader, StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { addCourse, removeCourse } from '../../store/Profile'
-import { coursesData } from '../Data/CoursesData'
+import { coursesData, popularCoursesData } from '../Data/CoursesData'
 import { FeaturedCard } from './FeaturedCard'
 import { LinkContainer } from 'react-router-bootstrap'
 
-const featuredCourse = coursesData[Math.floor(Math.random() * coursesData.length)]
+const featuredCourse = popularCoursesData.courses[Math.floor(Math.random() * popularCoursesData.courses.length)]
 
 export const HomeUI = ({
   myCourses,
@@ -24,7 +24,7 @@ export const HomeUI = ({
   }
 
   const isCourseInProfile = (id) => {
-    if(coursesData.find(course => course.id === id)) {
+    if(popularCoursesData.courses.find(course => course.id === id)) {
       if(myCourses.includes(id))
         return true;
     }

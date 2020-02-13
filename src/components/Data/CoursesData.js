@@ -28,7 +28,7 @@ export const popularCoursesData = {
   name: 'Popular Courses',
   publisher: 'freeCodeCamp',
   playlistUrl: "https://www.youtube.com/playlist?list=PLWKjhJtqVAblfum5WiQblKPwIbqYXkDoC",
-  numVideos: 20,
+  numVideos: 9,
   courses: [
     {
       id: uuidv4(),

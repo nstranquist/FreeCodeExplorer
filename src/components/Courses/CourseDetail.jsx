@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Container, Button } from 'react-bootstrap'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { formatDuration } from '../../utils/formatDuration'
-import { coursesData } from '../Data/CoursesData'
+import { coursesData, popularCoursesData } from '../Data/CoursesData'
 import { SubMenu } from './SubMenu'
 
 
@@ -20,7 +20,7 @@ export const CourseDetail = ({
   useEffect(() => {
     // get match params and match to course info from coursesData
     let paramsId = match.params.id
-    let courseItem = coursesData.find(course => course.id === paramsId)
+    let courseItem = popularCoursesData.courses.find(course => course.id === paramsId)
     setCourseItem(courseItem)
     setLoading(false)
   }, [])
@@ -51,7 +51,9 @@ export const CourseDetail = ({
         </StyledHeader>
 
         <StyledCourseSection className="course-detail">
-          <Button onClick={handleStart}>Begin</Button>
+          <a href={courseItem.url} target="_blank">
+            <Button onClick={handleStart}>Begin</Button>
+          </a>
           <br />
           
           {/* What should be included in each course??? */}

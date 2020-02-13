@@ -1,8 +1,8 @@
-import { coursesData } from '../components/Data/CoursesData'
+import { coursesData, popularCoursesData } from '../components/Data/CoursesData'
 
 export const getMyCourses = (state) => {
   console.log('myCourses:', state.profile.myCourses)
-  let selectedCourses = coursesData.filter(course => {
+  let selectedCourses = popularCoursesData.courses.filter(course => {
     if(state.profile.myCourses.includes(course.id))
       return course
   })
