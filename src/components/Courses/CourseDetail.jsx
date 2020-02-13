@@ -21,8 +21,10 @@ export const CourseDetail = ({
     // get match params and match to course info from coursesData
     let paramsId = match.params.id
     let courseItem = popularCoursesData.courses.find(course => course.id === paramsId)
-    setCourseItem(courseItem)
-    setLoading(false)
+    if(courseItem) {
+      setCourseItem(courseItem)
+      setLoading(false)
+    }
   }, [])
 
   const handleStart = (e) => {
