@@ -63,18 +63,29 @@ const exampleBoard = {
 }
 
 const StyledBoard = styled.div`
+  position: relative;
+  height: calc(100vh;
+  border: 1px solid rgba(0,0,0,.5);
 
   .kanban-header {
-
+    background: rgba(0,0,0,.03);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 4px;
+    padding-right: 4px;
 
     .kanban-header-left {
-      display: inline-block;
+      display: flex;
+      align-items: center;
 
       li {
         display: inline-block;
         padding: .6rem;
+        margin: auto;
         outline: 1px solid rgba(0,0,0,.1);
         cursor: pointer;
+        background: #fff;
 
         &:hover {
           background: rgba(0,0,0,.08);
@@ -82,16 +93,30 @@ const StyledBoard = styled.div`
       }
     }
   }
+  
+  .kanban-section {
+    background: rgba(0,0,0,.15);
+    height: 100%;
 
-  .board-col {
-    margin-left: 4px;
-    margin-right: 2px;
-    width: 272px;
+    .board-column {
+      margin: 4px;
+      // margin-left: 4px;
+      // margin-right: 2px;
+      padding: 15px;
+      width: 272px;
+      background: rgba(255,255,255,.7);
+      display: inline-block;
+      height: auto;
 
-    .board-col-header {
-      //title input
-      //add button, cancel button
-
+      .board-column-header {
+        //title input, add button, cancel button
+        padding: 10px;
+      }
+      .board-item {
+        background: rgba(255,255,255,1);
+        color: black;
+        padding: 15p
+      }
     }
   }
 `
@@ -113,24 +138,24 @@ export const BoardUI = ({
       {/* Sub Menu / Form Here (to add name, other details, etc) */}
       <StyledBoard>
         <header className="kanban-header">
-          <ul className="kanban-header-left" style={{listStyle:'none', paddingLeft:0}}>
+          <ul className="kanban-header-left" style={{listStyle:'none', paddingLeft:0,marginBottom:0,paddingTop:5,paddingBottom:5}}>
             <li><strong>{exampleBoard.name}</strong></li>
             <li style={{marginLeft:10}}>{exampleBoard.goal}</li>
-            <li>
+            {/* <li> */}
               {/* Icons, Buttons, other helpful shortcuts */}
-            </li>
+            {/* </li> */}
           </ul>
           <div className="kanban-header-right">{new Date().toDateString()}</div>
         </header>
 
         {/* KanBan Content Here */}
-        <section className="kanban-board">
+        <section className="kanban-section">
           {/* varying number of columns, each column can be added to or edited, can move left and right */}
           {exampleBoard.columns.map(board => (
             <div className="board-column" onDrag={handleDrag}>
               <header>title: {board.name}</header>
               {board.tasks.map(task => (
-                <article className="task-item">
+                <article className="board-item">
                   <h5>{task.name}</h5>
                   <p>{task.details}</p>
                 </article>

@@ -45,10 +45,12 @@ export const SubMenu = ({
         <li className="sub-nav-item">
           Add Note</li>
       </LinkContainer>
+      <LinkContainer to="/my/goals">
+        <li className="sub-nav-item">
+          Goals</li>
+      </LinkContainer>
       <li className="sub-nav-item">
         Forum</li>
-      <li className="sub-nav-item">
-        Goals</li>
       <li className="sub-nav-item">
         Calendar</li>
     </StyledSubNav>

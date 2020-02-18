@@ -5,7 +5,7 @@ import { coursesData, popularCoursesData } from '../Data/CoursesData'
 import { CourseItem } from './CourseItem'
 import { StyledCourseItem } from '../../styles/Course.style'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
-import { addCourse, removeCourse } from '../../store/Profile'
+import { addCourse, removeCourse } from '../../store/Profile/Courses'
 
 export const AllCoursesUI = ({
   myCourses,
@@ -59,7 +59,7 @@ export const AllCoursesUI = ({
 }
 
 const mapStateToProps = (state) => ({
-  myCourses: state.profile.myCourses,
+  myCourses: state.profile.courses.myCourses,
 })
 
 export const AllCourses = connect(

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import profile from './Profile'
+import profile from './Profile/Profile'
 import notes from './Notes'
 import kanban from './KanBan'
 

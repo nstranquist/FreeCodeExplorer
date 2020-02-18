@@ -16,7 +16,7 @@ export const FeaturedCard = ({
   return (
     <StyledFeaturedCard>
       <Card.Body className="featured-card-body">
-        <div className="left-side" style={{zIndex:100}}>
+        <div className="left-side" style={{zIndex:100, marginRight:20}}>
           {isCourseInProfile(featuredCourse.id) ? (
             <MdCheck style={{fontSize:'2.4rem', cursor:'pointer'}}
               onClick={handleFeatureRemove} />
@@ -27,7 +27,7 @@ export const FeaturedCard = ({
         </div>
         <div className="center-body">
           <h6 style={{margin:0,marginLeft:-20,marginBottom:5,padding:0}}>FOR YOU</h6>
-          <LinkContainer to={`/course/${featuredCourse.id}`} style={{marginLeft:-20}}>
+          <LinkContainer to={`/course/${featuredCourse.id}`} style={{marginLeft:-20, paddingLeft: 20}}>
             <StyledFeatureTitle>{featuredCourse.name}</StyledFeatureTitle>
           </LinkContainer>
           <h5 style={{margin:0,padding:0, display:'flex',alignItems:'center', justifyContent:'center',marginLeft:-20}}>

@@ -24,7 +24,7 @@ export const KanBanUI = ({
       <LinkContainer to="/kanban">
 
         <Button>
-          <MdAdd style={{fontSize:24,color:"rgba(0,0,0,.6)"}} />
+          <MdAdd style={{fontSize:24, marginRight:2}} />
           New Board</Button>
       </LinkContainer>
 

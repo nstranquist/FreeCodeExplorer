@@ -1,6 +1,6 @@
 import { MyView } from './MyView'
 import { SideView } from './SideView'
-import { Progress } from './Progress'
+import { Progress } from './Progress/Progress'
 import { Goals } from './Goals'
 import { Settings } from './Settings'
 

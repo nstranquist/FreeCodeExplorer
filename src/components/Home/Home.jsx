@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Container } from 'react-bootstrap'
 import { MyCourses, AllCourses } from '../Courses'
 import { StyledJumboHeader, StyledHeader, StyledSubheader } from '../../styles/Layout.style'
-import { addCourse, removeCourse } from '../../store/Profile'
+import { addCourse, removeCourse } from '../../store/Profile/Courses'
 import { coursesData, popularCoursesData } from '../Data/CoursesData'
 import { FeaturedCard } from './FeaturedCard'
 import { LinkContainer } from 'react-router-bootstrap'
@@ -33,9 +33,9 @@ export const HomeUI = ({
 
   return (
     <Container>
-      <LinkContainer to="/my/home">
+      {/* <LinkContainer to="/my/home">
         <a>to MyView</a>
-      </LinkContainer>
+      </LinkContainer> */}
       <StyledJumboHeader>
         <h1>Welcome, Coder...</h1>
         <StyledSubheader>~ your journey awaits ~</StyledSubheader>
@@ -51,7 +51,7 @@ export const HomeUI = ({
 
       <div style={{height:'10px',marginTop:20}}></div>
       {/* My Courses (eventually show progress on them) */}
-      <MyCourses/>
+      <MyCourses />
       {/* Can offer tabs to view either one, or tidbits of each */}
       {/* <div style={{borderBottom:'1px solid rgba(0,0,0,.25)',height:'10px', marginTop:40,marginBottom:40}}></div>
       <AllCourses /> */}
@@ -60,7 +60,7 @@ export const HomeUI = ({
 }
 
 const mapStateToProps = (state) => ({
-  myCourses: state.profile.myCourses,
+  myCourses: state.profile.courses.myCourses,
 })
 
 export const Home = connect(

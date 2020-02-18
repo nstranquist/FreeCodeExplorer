@@ -16,7 +16,7 @@ function App() {
       <>
         <MyNavbar />
         <Switch>
-          <Route exact path="/" component={HomeView} />
+          <Route exact path="/" component={MyView} />
           <Route exact path="/home" component={HomeView} />
           <Route path="/my" component={MyView} />
           <Route exact path="/courses" component={AllCourses} />

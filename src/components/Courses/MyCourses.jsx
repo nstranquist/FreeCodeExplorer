@@ -5,7 +5,7 @@ import { CourseItem } from './CourseItem'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { StyledCourseItem } from '../../styles/Course.style'
 import { getMyCourses } from '../../store/selectors'
-import { removeCourse } from '../../store/Profile'
+import { removeCourse } from '../../store/Profile/Courses'
 import { LinkContainer } from 'react-router-bootstrap'
 
 export const MyCoursesUI = ({

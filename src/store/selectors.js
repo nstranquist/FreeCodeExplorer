@@ -1,9 +1,9 @@
 import { coursesData, popularCoursesData } from '../components/Data/CoursesData'
 
 export const getMyCourses = (state) => {
-  console.log('myCourses:', state.profile.myCourses)
+  console.log('myCourses:', state.profile.courses.myCourses)
   let selectedCourses = popularCoursesData.courses.filter(course => {
-    if(state.profile.myCourses.includes(course.id))
+    if(state.profile.courses.myCourses.includes(course.id))
       return course
   })
 

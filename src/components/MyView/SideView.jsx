@@ -51,7 +51,7 @@ export const SideView = ({
             <Link className="side-view-link" to="/my/courses">Your Courses</Link>
           </li>
           <li>
-            <Link className="side-view-link" to="/courses">All Courses</Link>
+            <Link className="side-view-link" to="/my/all-courses">All Courses</Link>
           </li>
           <li>
             <Link className="side-view-link" to="/my/progress">Your Progress</Link>
