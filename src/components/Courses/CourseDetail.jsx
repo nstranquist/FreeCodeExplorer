@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { Container, Button } from 'react-bootstrap'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { formatDuration } from '../../utils/formatDuration'
-import { coursesData, popularCoursesData } from '../Data/CoursesData'
-import { SubMenu } from './SubMenu'
+import { coursesData, popularCoursesData } from '../../data/CoursesData'
+import { SubMenu } from '../layout/SubMenu'
 
 
 const StyledCourseSection = styled.section`
@@ -30,6 +30,10 @@ export const CourseDetail = ({
   const handleStart = (e) => {
     // add course with id to the active courses:
     console.log('clicked start with course id:', courseItem.id)
+  }
+
+  const handleLink = (e) => {
+    console.log('link clicked')
   }
   
   if(loading) {
@@ -67,7 +71,7 @@ export const CourseDetail = ({
           <p>difficulty: {courseItem.difficulty}</p>
           <p>tags: {courseItem.tags.map((tag, index) => <span key={index} className="tag-item">{tag}</span>)}</p>
           <p>year: {courseItem.year}</p>
-          <p><a href={courseItem.ogChannel} target="_blank">original channel</a></p>
+          <p><a href={courseItem.ogChannel} onClick={handleLink} target="_blank">original channel</a></p>
         </StyledCourseSection>
       </Container>
     </div>

@@ -1,6 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Button } from 'react-bootstrap'
 import { getDateFromTimestamp } from '../../utils/dateUtils'
+
+
+const StyledNoteItem = styled.div`
+  margin-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0,0,0,.33);
+`
 
 export const NotesItem = ({
   note,
@@ -17,7 +25,7 @@ export const NotesItem = ({
   }
 
   return (
-    <div className="note-item" style={{marginTop:15, paddingBottom:15, borderBottom:"1px solid rgba(0,0,0,.33)"}}>
+    <StyledNoteItem className="note-item">
         <div>parent id: {note.parentId}</div>
         <div>note: {note.body}</div>
         <div>time: {getDateFromTimestamp(note.timestamp).toDateString()}</div>
@@ -28,6 +36,6 @@ export const NotesItem = ({
           <Button className="note-item-button" variant="info" onClick={handleEditNote}>Edit</Button>
           <Button className="note-item-button" variant="secondary" onClick={handleRemoveNote}>Remove</Button>
         </div>
-    </div>
+    </StyledNoteItem>
   )
 }

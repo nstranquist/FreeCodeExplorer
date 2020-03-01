@@ -1,4 +1,4 @@
-import { coursesData, popularCoursesData } from '../components/Data/CoursesData'
+import { coursesData, popularCoursesData } from '../data/CoursesData'
 
 export const getMyCourses = (state) => {
   console.log('myCourses:', state.profile.courses.myCourses)

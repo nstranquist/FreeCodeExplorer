@@ -4,6 +4,7 @@ import { Container, Button } from 'react-bootstrap'
 import { NotesForm, NotesItem, NotesFinder } from './index'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { addNote, editNote, removeNote } from '../../store/Notes'
+import { MdAdd } from 'react-icons/md'
 
 export const NotesListUI = ({
   notes,
@@ -65,7 +66,12 @@ export const NotesListUI = ({
       </div>
 
       <div style={{marginTop:10}}>
-        <Button onClick={toggleAddNote}>{formVisible ? "Cancel" : "Add New Note"}</Button>
+        <Button onClick={toggleAddNote}>{formVisible ? "Cancel" : (
+          <div className="btn-inner">
+            <MdAdd />
+            <span> New Note</span>
+          </div>
+        )}</Button>
       </div>
 
       {formVisible && (

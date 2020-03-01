@@ -1,28 +1,35 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Navbar, Nav } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
 export const MyNavbar = () => {
   return (
     <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
-      <Navbar.Brand href="/">FreeCodeExplorer</Navbar.Brand>
+      <Link to="/my/home">
+        <Navbar.Brand>FreeCodeExplorer</Navbar.Brand>
+      </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <LinkContainer to="/my/home">
+          {/* <LinkContainer to="/my/home">
             <Nav.Link>Home</Nav.Link>
-          </LinkContainer>
+          </LinkContainer> */}
+          {/* Make dropdown too */}
           <LinkContainer to="/categories">
-            <Nav.Link>Categories</Nav.Link>
+            <Nav.Link>Explorer</Nav.Link>
           </LinkContainer>
-          <LinkContainer to="/videos">
+          {/* <LinkContainer to="/videos">
             <Nav.Link>Videos</Nav.Link>
-          </LinkContainer>
+          </LinkContainer> */}
           <LinkContainer to="/about">
             <Nav.Link>About</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/contribute">
             <Nav.Link>Contribute</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/docs">
+            <Nav.Link>Docs</Nav.Link>
           </LinkContainer>
         </Nav>
         <Nav>

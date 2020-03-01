@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap'
 import { MyCourses, AllCourses } from '../Courses'
 import { StyledJumboHeader, StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { addCourse, removeCourse } from '../../store/Profile/Courses'
-import { coursesData, popularCoursesData } from '../Data/CoursesData'
+import { coursesData, popularCoursesData } from '../../data/CoursesData'
 import { FeaturedCard } from './FeaturedCard'
 import { LinkContainer } from 'react-router-bootstrap'
 

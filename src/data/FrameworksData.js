@@ -10,7 +10,7 @@
 
 export const frameworksData = [
   {
-    id: "react-framework",
+    id: "react",
     name: "React.js",
     language: "javascript",
     description: "",
@@ -18,7 +18,15 @@ export const frameworksData = [
     linkToDocumentation: "",
   },
   {
-    id: "angular-framework",
+    id: "react-native",
+    name: "React Native",
+    language: "javascript",
+    description: "",
+    purpose: "mobile-dev, cross-platform",
+    linkToDocumentation: "",
+  },
+  {
+    id: "angular",
     name: "Angular.js",
     language: "javascript",
     description: "",
@@ -26,7 +34,7 @@ export const frameworksData = [
     linkToDocumentation: "",
   },
   {
-    id: "vue-framework",
+    id: "vue",
     name: "Vue.js",
     language: "javascript",
     description: "",
@@ -34,7 +42,7 @@ export const frameworksData = [
     linkToDocumentation: "",
   },
   {
-    id: "django-framework",
+    id: "django",
     name: "Django",
     language: "python",
     description: "",
@@ -42,7 +50,7 @@ export const frameworksData = [
     linkToDocumentation: "",
   },
   {
-    id: "flask-framework",
+    id: "flask",
     name: "Flask",
     language: "python",
     description: "",
@@ -50,7 +58,7 @@ export const frameworksData = [
     linkToDocumentation: "",
   },
   {
-    id: "spring-framework",
+    id: "spring",
     name: "Spring Boot",
     language: "java",
     description: "",
@@ -58,9 +66,9 @@ export const frameworksData = [
     linkToDocumentation: "",
   },
   {
-    id: "laravel-framework",
+    id: "laravel",
     name: "Laravel",
-    language: "PHP",
+    language: "php",
     description: "",
     purpose: "back-end, full-stack",
     linkToDocumentation: ""
@@ -68,7 +76,7 @@ export const frameworksData = [
   {
     id: "node-framework",
     name: "Node.js",
-    language: "JavaScript",
+    language: "javascript",
     description: "Node.js is a javascript run-time environment that lets you write server-side javascript code",
     purpose: "back-end, full-stack",
     linkToDocumentation: ""
@@ -76,7 +84,7 @@ export const frameworksData = [
   {
     id: "ruby-framework",
     name: "Ruby on Rails",
-    language: "Ruby",
+    language: "ruby",
     description: "",
     purpose: "back-end, full-stack",
     linkToDocumentation: "",
@@ -84,9 +92,30 @@ export const frameworksData = [
   {
     id: "dotnet-framework",
     name: ".NET",
-    language: "C#",
+    language: "c#",
     description: "",
     purpose: "back-end",
     linkToDocumentation: "",
-  }
+  },
+  // games, graphics, other
+  {
+    id: "unity-engine",
+    name: "Unity",
+    language: "c#",
+    description: "a dope game engine",
+    purpose: "game-development",
+    linkToDocumentation: "",
+  },
+  {
+    id: "unreal-engine",
+    name: "Unreal",
+    language: "c#", // idk about this
+    description: "another cool game engine",
+    purpose: "game-development",
+    linkToDocumentation: "",
+  },
+  // graphics, libraries, etc
+  // WebGL, three.js, pixi.js,
+  // Phaser.js, Socket.io, 
+  // 
 ]

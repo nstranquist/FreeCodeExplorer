@@ -96,8 +96,8 @@ export const NotesForm = ({
       </Form.Group>
       <Form.Group>
         <Form.Control as="select" name="tags" onChange={handleChange}>
-          {filterValues.map(filter => (
-            <option value={filter}>{filter}</option>
+          {filterValues.map((filter, index) => (
+            <option value={filter} key={index}>{filter}</option>
           ))}
         </Form.Control>
 

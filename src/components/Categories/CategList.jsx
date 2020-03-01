@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import { categoriesData } from '../Data/CategoriesData'
+import { categoriesData } from '../../data/CategoriesData'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { LinkContainer } from 'react-router-bootstrap'
 

@@ -9,16 +9,19 @@ const StyledSubNav = styled.ul`
   align-items: center;
   margin: 0;
   padding: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
   list-style: none;
   // box-shadow: 0px 0px 30px 0px rgba(0,0,0,.1);
   // background: rgba(0,0,0,.015);
   color: #fff;
   background: #6200EE;
   font-family: sans-serif;
-  font-size: 1.2rem;
+  font-size: .96rem;
+  z-index: 1001;
 
   .sub-nav-item {
-    padding: 1rem 1.4rem;
+    padding: .47rem 1.4rem;
     margin: 0 .5rem;
     cursor: pointer;
     transition: .1s ease-in-out;

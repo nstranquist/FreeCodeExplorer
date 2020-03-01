@@ -1,4 +1,5 @@
 export const categoriesData = [
+  // cloud providers
   {
     id: 'aws',
     name: 'Amazon Web Services',

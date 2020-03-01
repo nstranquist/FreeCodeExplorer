@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Form, Container } from 'react-bootstrap'
-import { coursesData, popularCoursesData } from '../Data/CoursesData'
+import { coursesData, popularCoursesData } from '../../data/CoursesData'
 import { CourseItem } from './CourseItem'
 import { StyledCourseItem } from '../../styles/Course.style'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Button } from 'react-bootstrap'
-import { categoriesData } from '../Data/CategoriesData'
+import { categoriesData } from '../../data/CategoriesData'
 import { isObjectEmpty } from '../../utils/isObjectEmpty'
 import { LinkContainer } from 'react-router-bootstrap'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'

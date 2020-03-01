@@ -9,6 +9,8 @@ import { Contribute } from './components/Contribute';
 import { VideosFeed } from './components/Videos';
 import { MyView } from './components/MyView'
 import { Board } from './components/KanBan/Board';
+import { Docs, DocsDetail } from './components/Docs';
+import { TagDetail } from './components/Tags/TagDetail';
 
 function App() {
   return (
@@ -28,6 +30,9 @@ function App() {
           <Route exact path="/contribute" component={Contribute} />
           <Route exact path="/videos" component={VideosFeed} />
           <Route exact path="/kanban" component={Board} />
+          <Route exact path="/docs" component={Docs} />
+          <Route exact path="/docs/:faqId" component={DocsDetail} />
+          <Route exact path="/tags/:tagId" component={TagDetail} />
         </Switch>
       </>
     </BrowserRouter>

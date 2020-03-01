@@ -1,5 +1,5 @@
 import React from 'react'
-import { SubMenu } from './SubMenu'
+import { SubMenu } from '../layout/SubMenu'
 import { CourseDetail } from './CourseDetail'
 
 export const CourseLayout = ({
