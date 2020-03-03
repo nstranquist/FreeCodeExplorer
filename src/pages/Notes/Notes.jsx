@@ -6,7 +6,7 @@ import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { addNote, editNote, removeNote } from '../../store/Notes'
 import { MdAdd } from 'react-icons/md'
 
-export const NotesListUI = ({
+export const NotesUI = ({
   notes,
   filters,
   addNote,
@@ -108,7 +108,7 @@ const mapStateToProps = (state) => ({
   filters: state.notes.filters,
 })
 
-export const NotesList = connect(
+export const Notes = connect(
   mapStateToProps,
   { addNote, editNote, removeNote }
-)(NotesListUI)
+)(NotesUI)

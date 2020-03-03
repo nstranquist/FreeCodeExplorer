@@ -4,7 +4,7 @@ import { Container, Button } from 'react-bootstrap'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { formatDuration } from '../../utils/formatDuration'
 import { coursesData, popularCoursesData } from '../../data/CoursesData'
-import { SubMenu } from '../layout/SubMenu'
+import { SubMenu } from '../../components/layout'
 
 
 const StyledCourseSection = styled.section`

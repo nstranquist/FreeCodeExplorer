@@ -11,3 +11,5 @@ export {
   Goals,
   Settings,
 }
+
+export default MyView

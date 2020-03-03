@@ -1,26 +1,34 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { HomeView } from './components/Home'
-import { MyNavbar } from './components/layout/Navbar';
-import { AllCourses, CourseDetail } from './components/Courses';
-import { About } from './components/About';
-import { Categories, CategoryDetail } from './components/Categories';
-import { Contribute } from './components/Contribute';
-import { VideosFeed } from './components/Videos';
-import { MyView } from './components/MyView'
-import { Board } from './components/KanBan/Board';
-import { Docs, DocsDetail } from './components/Docs';
-import { TagDetail } from './components/Tags/TagDetail';
+import { Navbar } from './components/layout';
+import { Home } from './pages/Home'
+import { AllCourses, CourseDetail } from './pages/Courses';
+import { About } from './pages/About';
+import { Categories, CategoryDetail } from './pages/Categories';
+import { Contribute } from './pages/Contribute';
+import { VideosFeed } from './pages/Videos';
+// import { MyView } from './pages/MyView'
+import { Board } from './pages/KanBan/Board';
+import { Docs, DocsDetail } from './pages/Docs';
+import { TagDetail } from './pages/Tags/TagDetail';
+import { Explore } from './pages/Explore/Explore';
+import asyncComponent from './hocs/asyncComponent';
+
+// Async Route Components
+const AsyncComponent = (uri) => asyncComponent(() => {
+  console.log('uri of async component:', uri)
+  return import(`${uri}`)
+})
 
 function App() {
   return (
     <BrowserRouter>
       <>
-        <MyNavbar />
+        <Navbar />
         <Switch>
-          <Route exact path="/" component={MyView} />
-          <Route exact path="/home" component={HomeView} />
-          <Route path="/my" component={MyView} />
+          <Route exact path="/" component={AsyncComponent('./pages/MyView')} />
+          <Route exact path="/home" component={Home} />
+          <Route path="/my" component={AsyncComponent('./pages/MyView')} />
           <Route exact path="/courses" component={AllCourses} />
           <Route exact path="/course/:id" component={CourseDetail} />
           <Route exact path="/about" component={About} />
@@ -33,6 +41,7 @@ function App() {
           <Route exact path="/docs" component={Docs} />
           <Route exact path="/docs/:faqId" component={DocsDetail} />
           <Route exact path="/tags/:tagId" component={TagDetail} />
+          <Route exact path="/explore" component={Explore} />
         </Switch>
       </>
     </BrowserRouter>

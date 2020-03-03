@@ -1,6 +1,6 @@
 import { NotesForm } from './NotesForm'
 import { NotesFinder } from './NotesFinder'
-import { NotesList } from './NotesList'
+import { Notes } from './Notes'
 import { NotesItem } from './NotesItem'
 import { EditNotesItem } from './EditNotesItem'
 import { RenderFilters } from './RenderFilters'
@@ -8,7 +8,7 @@ import { RenderFilters } from './RenderFilters'
 export {
   NotesForm,
   NotesFinder,
-  NotesList,
+  Notes,
   NotesItem,
   EditNotesItem,
   RenderFilters,

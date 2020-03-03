@@ -18,16 +18,22 @@ const StyledKanbanHeader = styled.div`
   }
 `
 
+const emptyForm = {
+  title: ""
+}
+
 export const TopForm = ({
-  match
+  match,
+  // onHandleSubmit,
 }) => {
-  const [boardHeaderData, setBoardHeaderData] = useState({})
+  // for boardHeaders
+  const [formData, setFormData] = useState(emptyForm)
 
   useEffect(() => {
     console.log('match from props:', match)
     // get the id from /board/:id
     // fill in the form with appropriate data
-    setBoardHeaderData({}) // with item data inside object
+    setFormData(emptyForm) // with item data inside object
   }, [])
 
   const handleChange = (e) => {
@@ -41,12 +47,13 @@ export const TopForm = ({
     e.preventDefault()
     
     // submit form data
-    
+    console.log('formData:', formData)
+    // onHandleSubmit(formData)
     
     resetForm()
   }
   
-  const resetForm = () => setFormDat({})
+  const resetForm = () => setFormData(emptyForm)
   
 
   return (

@@ -16,7 +16,7 @@ export const MyNavbar = () => {
             <Nav.Link>Home</Nav.Link>
           </LinkContainer> */}
           {/* Make dropdown too */}
-          <LinkContainer to="/categories">
+          <LinkContainer to="/explore">
             <Nav.Link>Explorer</Nav.Link>
           </LinkContainer>
           {/* <LinkContainer to="/videos">

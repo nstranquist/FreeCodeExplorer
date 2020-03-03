@@ -1,7 +1,7 @@
 import React from 'react'
-import { frameworksData } from '../Data/FrameworksData'
-import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { Link } from 'react-router-dom'
+import { frameworksData } from '../../data/FrameworksData'
+import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 
 export const FrameworksList = ({
 
