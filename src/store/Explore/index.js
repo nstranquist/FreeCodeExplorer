@@ -65,7 +65,7 @@ export default (
           ...state,
           filters: [
             ...state.filters,
-            filter
+            action.filter
           ]
         }
       }

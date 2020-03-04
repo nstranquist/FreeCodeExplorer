@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { Container, Row, Col, Form } from 'react-bootstrap'
-import { CheckSelect } from '../../components/Inputs/CheckSelect'
+// import { CheckSelect } from '../../components/Inputs/CheckSelect'
+import { popularCoursesData } from '../../data/CoursesData'
+import { ResultItem } from './ResultItem'
 
 
 const StyledExploreMenu = styled.div`
@@ -51,35 +53,13 @@ const StyledExploreMenu = styled.div`
   }
 `
 const StyledToolbar = styled.div`
-
+  // box-shadow: 5px 10px 30px rgba(0,0,0,.08);
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  padding-top: 10px;
+  padding-bottom: 10px;
 `
-const StyledResultItem = styled.div`
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid rgba(0,0,0,.1);
-  border-radius: 8px;
-  cursor: pointer;
-  color: initial;
-  text-align: center;
-
-  &:hover {
-    background: rgba(0,0,0,.04);
-  }
-
-  .item-title {
-    font-size: 1.6rem;
-  }
-  .item-desc {
-    margin-bottom: 0;
-    font-size: 1rem;
-    min-height: 2.8rem;
-    line-height: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+const StyledResults = styled.div`
+  padding-top: 20px;
 `
 
 export const ExploreUI = ({
@@ -95,6 +75,12 @@ export const ExploreUI = ({
     console.log('search with e:', e)
   }
 
+  const handleLangClick =(e) => {
+    console.log("sidebar clicked event:", e)
+    console.log("event.target:", e.target)
+    console.log("target key:", e.target.key)
+  }
+
   return (
     <Container>
       {/* Search Bar */}
@@ -105,10 +91,10 @@ export const ExploreUI = ({
             <header className="header">
               <h1>Explore</h1>
             </header>
-            <ul className="languages-list">
+            <ul className="languages-list" onClick={handleLangClick}>
               {/* note: would be cool if could click '+' */}
               {/*       and see the frameworks, tags, etc */}
-              <li className="languages-list-item">
+              <li className="languages-list-item" key="javascript">
                 {/* <span className="icon-left">+</span> */}
                 <p className="language-text">
                   <span className="badge-left">-</span>
@@ -116,7 +102,7 @@ export const ExploreUI = ({
                   <span className="badge-right">(30)</span>
                 </p>
               </li>
-              <li className="languages-list-item">
+              <li className="languages-list-item" key="python">
                 {/* <span className="icon-left">+</span> */}
                 <p className="language-text">
                   <span className="badge-left">-</span>
@@ -124,7 +110,7 @@ export const ExploreUI = ({
                   <span className="badge-right">(30)</span>
                 </p>
               </li>
-              <li className="languages-list-item">
+              <li className="languages-list-item" key="java">
                 {/* <span className="icon-left">+</span> */}
                 <p className="language-text">
                   <span className="badge-left">-</span>
@@ -132,7 +118,7 @@ export const ExploreUI = ({
                   <span className="badge-right">(25)</span>
                 </p>
               </li>
-              <li className="languages-list-item">
+              <li className="languages-list-item" key="c#">
                 {/* <span className="icon-left">+</span> */}
                 <p className="language-text">
                   <span className="badge-left">-</span>
@@ -145,20 +131,20 @@ export const ExploreUI = ({
         </Col>
         <Col sm="8" md="9">
           {/* Search Result (Main Section) */}
-          <StyledToolbar className="explore-toolbar"
-            style={{display:'flex',justifyContent:'space-between'}}>
+          <StyledToolbar className="explore-toolbar" 
+            style={{display:'flex',justifyContent:'space-between', alignItems:'center'}}>
             <div className="filter-results">
               <select name="contentType" className="select-filter">
                 {/* Shown by default: */}
-                <option value="playlist">Playlist</option>
+                <option value="course">Course</option>
                 <option value="video">Video</option>
                 {/* Not shown by default: */}
                 <option value="article">Article</option>
                 <option value="project">Project</option>
               </select>
-            </div>
-            <div className="filter-results">
-              <CheckSelect />
+              {/* <div className="filter-results">
+                <CheckSelect />
+              </div> */}
             </div>
             <div className="search-bar">
               <Form onSubmit={submitSearch} className="search-form">
@@ -167,6 +153,23 @@ export const ExploreUI = ({
               </Form>
             </div>
           </StyledToolbar>
+          <div className="results-count" style={{textAlign:'center',marginTop:15}}>
+            <p style={{marginBottom:0}}>showing 10 of 20 results for javascript</p>
+          </div>
+          <StyledResults>
+            {popularCoursesData.courses.map((course, index) => (
+              <ResultItem
+                key={index}
+                course={course}
+              />
+            ))}
+            <div className="pagination-container" style={{marginBottom:20}}>
+              <div className="btn-group" style={{textAlign:'center', display:'block'}}>
+                <button className="btn btn-light" style={{margin:"15px auto", marginRight:10}}>Last Page</button>
+                <button className="btn btn-primary" style={{margin:"15px auto", marginLeft:10}}>Next Page</button>
+              </div>
+            </div>
+          </StyledResults>
         </Col>
       </Row>
     </Container>

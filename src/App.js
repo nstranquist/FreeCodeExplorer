@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Navbar } from './components/layout';
-import { Home } from './pages/Home'
+// import { Home } from './pages/Home'
 import { AllCourses, CourseDetail } from './pages/Courses';
 import { About } from './pages/About';
 import { Categories, CategoryDetail } from './pages/Categories';
@@ -24,11 +24,13 @@ function App() {
   return (
     <BrowserRouter>
       <>
+      {/* QUESTION: how many to asyncLoad and when? */}
         <Navbar />
         <Switch>
           <Route exact path="/" component={AsyncComponent('./pages/MyView')} />
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/home" component={AsyncComponent('./pages/Home')} />
           <Route path="/my" component={AsyncComponent('./pages/MyView')} />
+          {/* <Route exact path="/my/home" component={AsyncComponent('./pages/MyView')} /> */}
           <Route exact path="/courses" component={AllCourses} />
           <Route exact path="/course/:id" component={CourseDetail} />
           <Route exact path="/about" component={About} />

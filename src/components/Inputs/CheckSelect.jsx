@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Select, { components } from 'react-select';
 
 const optionsData = [
   { value: "videos", label: "Videos" },
@@ -10,11 +9,11 @@ const optionsData = [
 
 const CheckOption = ({ innerProps }) => {
   return (
-    <div className="check-select-option" style={{minWidth:300}}>
-      <components.Option {...innerProps}>
+    <div className="check-select-option">
+      {/* <components.Option {...innerProps}> */}
         <input type="checkbox" checked={innerProps.isSelected} onChange={() => null} />
         <label style={{paddingLeft:4}}>{innerProps.value}</label>
-      </components.Option>
+      {/* </components.Option> */}
     </div>
   )
 }
@@ -44,25 +43,29 @@ export const CheckSelect = ({
     setSelectedOption(eSelectedOption)
   }
 
+  return (
+    <div>
+      select with options
+    </div>
+  )
+
   // const CheckboxList = () => (
   //   <div className="checkboxes-inner">
   //     checklist
   //   </div>
   // )
 
-  return (
-    <Select
-      isMulti
-      name="contentTypes"
-      closeMenuOnSelect={false}
-      hideSelectedOptions={false}
-      value={selectedOption}
-      defaultValue={[optionsData[0], optionsData[1]]}
-      onChange={handleChange}
-      options={optionsData}
-      components={{ Option: CheckOption }}
-      style={{minWidth:300}}
-      styles={{minWidth:300}}
-    />
-  )
+  // return (
+  //   <Select
+  //     isMulti
+  //     name="contentTypes"
+  //     closeMenuOnSelect={false}
+  //     hideSelectedOptions={false}
+  //     value={selectedOption}
+  //     defaultValue={[optionsData[0], optionsData[1]]}
+  //     onChange={handleChange}
+  //     options={optionsData}
+  //     components={{ Option: CheckOption }}
+  //   />
+  // )
 }

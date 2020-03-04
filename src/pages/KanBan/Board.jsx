@@ -151,8 +151,8 @@ export const BoardUI = ({
         {/* KanBan Content Here */}
         <section className="kanban-section">
           {/* varying number of columns, each column can be added to or edited, can move left and right */}
-          {exampleBoard.columns.map(board => (
-            <div className="board-column" onDrag={handleDrag}>
+          {exampleBoard.columns.map((board, index) => (
+            <div key={index} className="board-column" onDrag={handleDrag}>
               <header>title: {board.name}</header>
               {board.tasks.map(task => (
                 <article className="board-item">
