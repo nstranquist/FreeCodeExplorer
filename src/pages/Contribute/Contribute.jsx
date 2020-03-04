@@ -1,7 +1,17 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Container } from 'react-bootstrap'
 import { ContributeForm } from './ContributeForm'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
+
+const FormContainer = styled.div`
+  max-width: 75%;
+  margin: 0 auto;
+
+  @media (max-width: 800px) {
+    max-width: 100%;
+  }
+`
 
 export const Contribute = () => {
 
@@ -17,8 +27,9 @@ export const Contribute = () => {
         <h4>Contribute Page</h4>
         <StyledSubheader>Is something missing from our site? Please let us know!</StyledSubheader>
       </StyledHeader>
-      
-      <ContributeForm onHandleSubmit={onHandleSubmit} />
+      <FormContainer className="form-container">
+        <ContributeForm onHandleSubmit={onHandleSubmit} />
+      </FormContainer>
     </Container>
   )
 }
