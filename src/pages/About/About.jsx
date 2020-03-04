@@ -3,6 +3,8 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import { StyledHeader, StyledSubheader } from '../../styles/Layout.style'
 import { StyledAboutSection } from '../../styles/About.style'
+import { popularCoursesData } from '../../data/CoursesData'
+import { YoutubeLink } from '../../components/Items/YoutubeLink'
 
 export const About = ({
 
@@ -14,6 +16,12 @@ export const About = ({
         <h2>About</h2>
         <StyledSubheader>-- About FreeCodeExplorer --</StyledSubheader>
       </StyledHeader>
+        {popularCoursesData.courses.map((course, index) => (
+          <YoutubeLink
+            videoData={course}
+            key={index}
+          />
+        ))}
       
       <StyledAboutSection>
         {/* Details Here */}

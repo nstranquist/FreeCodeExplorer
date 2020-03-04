@@ -10,6 +10,8 @@ const FormContainer = styled.div`
 
   @media (max-width: 800px) {
     max-width: 100%;
+    margin-left: 8px;
+    margin-right: 8px;
   }
 `
 
