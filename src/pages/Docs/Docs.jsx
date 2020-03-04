@@ -39,26 +39,41 @@ export const StyledSquare = styled.div`
 
 const StyledFAQHeader = styled.h3`
   margin-top: 50px;
+  text-align: center;
   padding-left: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0,0,0,.12);
+  // padding-bottom: 10px;
+  padding-bottom:0;
+  margin-bottom:5px;
+  text-decoration: underline;
+  text-decoration-color: blue;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: blue;
+  opacity: .6;
+  // border-bottom: 1px solid rgba(0,0,0,.12);
+
+  &:first-child {
+    margin-top: 15px;
+  }
 `
 
 const StyledFAQSideMenu = styled.div`
+  padding: 10px;
+
   .faq-header {
-    font-size: 1.8rem;
-    margin-top: 10px;
+    font-size: 1.9rem;
+    margin-top: 5px;
   }
 
   .side-menu-list {
-    margin-top: 12px;
+    margin-top: 16px;
     list-style: none;
     padding-left: 0;
 
     li {
       cursor: pointer;
-      font-size: 1.05rem;
-      margin-bottom: 4px;
+      font-size: 1.1rem;
+      margin-bottom: 3px;
       
       &:hover {
         text-decoration: underline;
@@ -75,10 +90,10 @@ export const Docs = () => {
   }
 
   return (
-    <Container fluid>
-      <Row style={{marginTop:10}}>
+    <Container fluid style={{maxHeight:"calc(100vh - 56px)"}}>
+      <Row>
         {/* FAQ */}
-        <Col md="9">
+        <Col md="9" style={{paddingBottom:20, maxHeight:"calc(100vh - 56px)", overflowY:"scroll"}}>
 
           {/* 1) Steps */}
           <StyledFAQHeader>Steps</StyledFAQHeader>
